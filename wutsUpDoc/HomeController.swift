@@ -31,6 +31,10 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 
 
 class HomeController: UIViewController, CLLocationManagerDelegate {
+
+    // MARK: searchWord var to pass to api
+    @IBOutlet weak var searchWord: UITextField!
+
     
     @IBOutlet weak var coffeeButton: UIButton!
     
@@ -110,4 +114,13 @@ class HomeController: UIViewController, CLLocationManagerDelegate {
         present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func WutsUpDocButtonPressed(_ sender: Any) {
+//        print (self.searchWord.text)
+        UserDefaults.standard.set(searchWord.text, forKey: "searchWord");
+        UserDefaults.standard.synchronize();
+    }
 }
+
+
+
+

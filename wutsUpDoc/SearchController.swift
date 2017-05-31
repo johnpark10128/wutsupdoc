@@ -19,10 +19,14 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     var searchResults = [JSON]()
     var currentLocation:CLLocationCoordinate2D!
+
+    var searchWordstring:String=""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        searchWordstring = UserDefaults.standard.object(forKey: "searchWord") as! String
+
         // set nav bar title
 //        title = "☕️"
         title = "✚"
@@ -67,7 +71,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
             // set label name and visible
             DispatchQueue.main.async {
                 if let v = currentVenueName {
-                    self.currentLocationLabel.text = "Looks like you're at \(v). Here're some results for \"\(self.searchWord)\" nearby."
+                    self.currentLocationLabel.text = "Looks like you're at \(v). Here're some results for \"\(self.searchWordstring)\" nearby."
                 }
                 self.currentLocationLabel.isHidden = false
             }
@@ -80,10 +84,16 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     // https://developer.foursquare.com/docs/search/recommendations
 //    func searchForCoffee() {
 //        let url = "https://api.foursquare.com/v2/search/recommendations?ll=\(currentLocation.latitude),\(currentLocation.longitude)&v=20160607&intent=coffee&limit=15&client_id=\(client_id)&client_secret=\(client_secret)"
-    var searchWord = "hospital"
+
+//    searchWord=UserDefaults.standard.object(forKey: “searchWord”) as! String
+    
+    
+//    var searchWord = (self.searchWord.text)
+// save as        nsuserdefaultkey
+    
     
     func searchForHospital() {
-        let url = "https://api.foursquare.com/v2/search/recommendations?ll=\(currentLocation.latitude),\(currentLocation.longitude)&v=20160607&intent=browse&query=\(searchWord)&limit=15&client_id=\(client_id)&client_secret=\(client_secret)"
+        let url = "https://api.foursquare.com/v2/search/recommendations?ll=\(currentLocation.latitude),\(currentLocation.longitude)&v=20160607&intent=browse&query=\(searchWordstring)&limit=15&client_id=\(client_id)&client_secret=\(client_secret)"
 print (url)
     
         let request = NSMutableURLRequest(url: URL(string: url)!)

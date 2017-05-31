@@ -34,6 +34,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="WutsUpDoc!?" backgroundImage="wutsupdoc"/>
+                                <connections>
+                                    <action selector="WutsUpDocButtonPressed:" destination="tII-Mk-Faq" eventType="touchUpInside" id="1Jf-WZ-HvT"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Powered-by-Foursquare-one-color-600" translatesAutoresizingMaskIntoConstraints="NO" id="Y42-py-4Rx">
                                 <rect key="frame" x="83" y="632" width="210" height="35"/>
@@ -42,8 +45,9 @@
                                     <constraint firstAttribute="height" constant="35" id="W8G-1c-a1r"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="search word" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9FG-Vu-Hb0">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="hospital" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9FG-Vu-Hb0">
                                 <rect key="frame" x="139" y="215" width="97" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="searchWord"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="b85-hN-Z0H"/>
                                 </constraints>
@@ -67,6 +71,7 @@
                     <navigationItem key="navigationItem" title="WutsUpDoc?" id="lR9-lD-vVH"/>
                     <connections>
                         <outlet property="coffeeButton" destination="UFD-wO-2gF" id="Hs3-q8-1Xe"/>
+                        <outlet property="searchWord" destination="9FG-Vu-Hb0" id="bau-IO-t96"/>
                         <segue destination="4S7-Xp-f9x" kind="show" identifier="showSearch" id="bzC-3U-hw8"/>
                     </connections>
                 </viewController>
